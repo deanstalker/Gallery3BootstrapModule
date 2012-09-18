@@ -49,14 +49,12 @@ class Theme_View extends Theme_View_Core
         return $menu->render();
     }
 
-    public function context_menu($item, $thumbnail_css_selector) {
-        $menu = Menu::factory("root")
-            ->append(Menu::factory("submenu")
-               ->id("context_menu")
-               ->label(t("Options")))
+    public function context_menu($item, $thumbnail_css_selector) {        
+        $menu = Menu::factory("root")                        
+            ->label(t("Options"))
             ->css_class("g-context-menu");
-
-        module::event("context_menu", $menu, $this, $item, $thumbnail_css_selector);
+        
+        module::event("context_menu", $menu, $this, $item, $thumbnail_css_selector);        
         return $menu->render();
     }    
 }
